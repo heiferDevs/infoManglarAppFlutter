@@ -1,0 +1,2103 @@
+{
+  "info-veda-form":{
+    "idReport":"info-veda-form",
+    "submitLabel":"GUARDAR",
+    "image":"info-veda-form.png",
+    "iconTitle":"Información para veda",
+    "title":"Información de recolección",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"INFORMACIÓN PARA MUDA Y REPRODUCCIÓN DE CANGREJOS",
+        "type":"title"
+      },
+      {
+        "id":"informationGathering",
+        "label":"Levantamiento de información",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"eventType",
+        "label":"Tipo de evento",
+        "options":[
+          "Muda",
+          "Reproducción"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"mudaFeatures",
+        "label":"Características de muda",
+        "options":[
+          "Cambio de color",
+          "Exoesqueleto blando"
+        ],
+        "type":"select",
+        "showIfId":"eventType",
+        "showIfSelected":"Muda"
+      },
+      {
+        "id":"observations",
+        "isRequired":true,
+        "label":"Observaciones",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"sectorName",
+        "label":"Sector",
+        "options":"OPTIONS_SECTORS_API",
+        "type":"select"
+      }
+    ]
+  },
+  "evidence-form":{
+    "idReport":"evidence-form",
+    "submitLabel":"GUARDAR",
+    "image":"evidence-form.png",
+    "iconTitle":"Evidencias de informe semestral",
+    "title":"Evidencias de informe semestral",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"EVIDENCIAS DE INFORME SEMESTRAL",
+        "type":"title"
+      },
+      {
+        "label":"(Informe eventual)",
+        "type":"subtitle"
+      },
+      {
+        "id":"activity",
+        "label":"Actividad",
+        "options":"OPTIONS_ACTIVITIES_API",
+        "type":"select"
+      },
+      {
+        "id":"activityDate",
+        "isRequired":true,
+        "label":"Fecha de actividad",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"activityDesc",
+        "isRequired":true,
+        "label":"Descripción actividad",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"activityResults",
+        "isRequired":true,
+        "label":"Observaciones",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"evidences",
+        "label":"Evidencias",
+        "type":"addOption",
+        "minExtraOptions": 1,
+        "maxExtraOptions": 100,
+        "optionsToAdd":[
+          {
+            "id":"evidenceGroup",
+            "label":"Evidencia",
+            "type":"groupInputs",
+            "image":"photo.png",
+            "optionsToGroup":[
+              {
+                "id":"evidenceType",
+                "label":"Tipo de evidencia",
+                "options":[
+                  "Foto de la actividad",
+                  "Factura",
+                  "Lista de participantes",
+                  "Invitación",
+                  "Otros"
+                ],
+                "type":"select"
+              },
+              {
+                "id":"evidenceDoc",
+                "isRequired":true,
+                "label":"Evidencia del participante",
+                "type":"file"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "prices-form":{
+    "idReport":"prices-form",
+    "submitLabel":"GUARDAR",
+    "image":"prices-form.png",
+    "iconTitle":"Precios productos",
+    "title":"Precios",
+    "loadLast": true,
+    "showListBeforeForm": false,
+    "saveOnlyOne": true,
+    "options":[
+      {
+        "label":"PRECIO DE PRODUCTO BIOACUÁTICOS",
+        "type":"title"
+      },
+      {
+        "id":"dailyOffers",
+        "label":"Ofertas diarias",
+        "type":"addOption",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 100,
+        "optionsToAdd":[
+          {
+            "id":"dailyOffer",
+            "label":"Oferta diaria",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"productType",
+                "label":"Tipo producto",
+                "options":[
+                  "Productos bioacuáticos",
+                  "Otros productos",
+                  "Servicios"
+                ],
+                "type":"select"
+              },
+              {
+                "id":"bioAquaticType",
+                "label":"Tipo bioacuático",
+                "options":[
+                  "Concha",
+                  "Pulpa de Concha",
+                  "Cangrejo",
+                  "Pulpa de Cangrejo",
+                  "Miel de Mangle",
+                  "Ostiones",
+                  "Mejillón",
+                  "Jaiba",
+                  "Pesca Blanca (camarón, corvina, róbalo, pescado)"
+                ],
+                "type":"select",
+                "showIfId":"productType",
+                "showIfSelected":"Productos bioacuáticos"
+              },
+              {
+                "id":"shellQuality",
+                "label":"Calidad",
+                "options":[
+                  "Normal",
+                  "Premium",
+                  "Especial"
+                ],
+                "type":"select",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Concha"
+              },
+              {
+                "id":"shellCount",
+                "label":"# conchas para venta",
+                "options":[
+                  "100",
+                  "200",
+                  "300",
+                  "400",
+                  "500",
+                  "600",
+                  "700",
+                  "800",
+                  "900",
+                  "1000"
+                ],
+                "type":"select",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Concha"
+              },
+              {
+                "id":"shellPulpPounds",
+                "isRequired":true,
+                "label":"Lb pulpa de concha",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"decimal",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Pulpa de Concha"
+              },
+              {
+                "id":"crabQuality",
+                "label":"Calidad",
+                "options":[
+                  "Normal",
+                  "Premium",
+                  "Especial"
+                ],
+                "type":"select",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Cangrejo"
+              },
+              {
+                "id":"sartsCount",
+                "isRequired":true,
+                "label":"# sartas para venta",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"number",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Cangrejo",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"crabObservations",
+                "isRequired":true,
+                "label":"Observaciones",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"textPersonName",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Cangrejo"
+              },
+              {
+                "id":"crabPulpPounds",
+                "isRequired":true,
+                "label":"Lb pulpa de cangrejo",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"decimal",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Pulpa de Cangrejo"
+              },
+              {
+                "id":"mielMangleCount",
+                "isRequired":true,
+                "label":"# frascos para venta",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"number",
+                "showIfId":"bioAquaticType",
+                "showIfSelected":"Miel de Mangle",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"otherProducts",
+                "label":"Otros productos",
+                "options":[
+                  "Artesanías",
+                  "Plantas de mangle (vivero)"
+                ],
+                "type":"select",
+                "showIfId":"productType",
+                "showIfSelected":"Otros productos"
+              },
+              {
+                "id":"bioAquaticPrice",
+                "isRequired":true,
+                "label":"Precio(USD)",
+                "placeholder":"Precio en dolares",
+                "type":"input",
+                "typeInput":"decimal",
+                "showIfId":"productType",
+                "showIfSelected":"Productos bioacuáticos"
+              },
+              {
+                "id":"otherProductsPrice",
+                "isRequired":true,
+                "label":"Precio(USD)",
+                "placeholder":"Precio en dolares",
+                "type":"input",
+                "typeInput":"decimal",
+                "showIfId":"productType",
+                "showIfSelected":"Otros productos"
+              },
+              {
+                "id":"craftName",
+                "isRequired":true,
+                "label":"Nombre producto",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"textPersonName",
+                "showIfId":"otherProducts",
+                "showIfSelected":"Artesanías"
+              },
+              {
+                "id":"craftCount",
+                "isRequired":true,
+                "label":"# productos",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"number",
+                "showIfId":"otherProducts",
+                "showIfSelected":"Artesanías",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"plantasMangleCount",
+                "isRequired":true,
+                "label":"# productos",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"number",
+                "showIfId":"otherProducts",
+                "showIfSelected":"Plantas de mangle (vivero)",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"serviceType",
+                "label":"Tipo",
+                "options":[
+                  "Restaurantes",
+                  "Catering",
+                  "Turismo",
+                  "Otros"
+                ],
+                "type":"select",
+                "showIfId":"productType",
+                "showIfSelected":"Servicios"
+              },
+              {
+                "id":"bioemprendimientoName",
+                "isRequired":true,
+                "label":"Nombre bioemprendimiento",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"textPersonName",
+                "showIfId":"productType",
+                "showIfSelected":"Servicios"
+              },
+              {
+                "id":"productImage",
+                "isRequired": false,
+                "label":"Foto",
+                "placeholder":"",
+                "type":"file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label":"Datos de contacto para la venta",
+        "type":"title"
+      },
+      {
+        "id":"name",
+        "isRequired":true,
+        "label":"Nombre",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"mobile",
+        "isRequired":true,
+        "label":"Celular",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"numberToString",
+        "validate": "contact-mobile"
+      },
+      {
+        "id":"address",
+        "isRequired":true,
+        "label":"Dirección",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      }
+    ]
+  },
+  "desc-projects-form":{
+    "idReport":"desc-projects-form",
+    "submitLabel":"GUARDAR",
+    "image":"desc-projects-form.png",
+    "iconTitle":"Descripción de proyectos",
+    "title":"Información económica",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"DESCRIPCIÓN DE PROYECTOS",
+        "type":"title"
+      },
+      {
+        "label":"Información del proyecto",
+        "type":"title"
+      },
+      {
+        "id":"projectType",
+        "label":"Tipo",
+        "options":[
+          "Proyectos",
+          "Donaciones externas"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"projectName",
+        "isRequired":true,
+        "label":"Nombre del proyecto",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName",
+        "showIfId":"projectType",
+        "showIfSelected":"Proyectos"
+      },
+      {
+        "id":"projectObjective",
+        "isRequired":true,
+        "label":"Objetivo del proyecto",
+        "placeholder":"",
+        "type":"inputTextArea",
+        "typeInput":"textPersonName",
+        "showIfId":"projectType",
+        "showIfSelected":"Proyectos"
+      },
+      {
+        "id":"institutionType",
+        "label":"Tipo de institución",
+        "options":[
+          "Gobierno central",
+          "GAD",
+          "ONG",
+          "Otros"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"budget",
+        "isRequired":true,
+        "label":"Presupuesto asignado(USD)",
+        "placeholder":"Presupuesto asignado en dolares",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"institutionsName",
+        "isRequired":true,
+        "label":"Nombre de la insitución o instituciones",
+        "placeholder":"",
+        "type":"inputTextArea",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"documents",
+        "label":"Documentos",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 5,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"documentInfo",
+            "label":"Documento",
+            "type":"groupInputs",
+            "image":"note.png",
+            "optionsToGroup":[
+              {
+                "id":"document",
+                "isRequired":true,
+                "label":"Documento",
+                "type":"file"
+              },
+              {
+                "id":"supportType",
+                "label":"Tipo de apoyo",
+                "options":[
+                  "Capacitaciones",
+                  "Incentivo económico",
+                  "Investigación",
+                  "Monitoreo",
+                  "Asistencia técnica",
+                  "Otros"
+                ],
+                "type":"select"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "investments-orgs-form":{
+    "idReport":"investments-orgs-form",
+    "submitLabel":"GUARDAR",
+    "image":"investments-orgs-form.png",
+    "iconTitle":"Inversiones organizaciones",
+    "showListBeforeForm": true,
+    "title":"Información económica",
+    "options":[
+      {
+        "label":"INVERSIONES REALIZADAS POR ORGANIZACIONES (USD)",
+        "type":"title"
+      },
+      {
+        "label":"(Informe semestral)",
+        "type":"subtitle"
+      },
+      {
+        "id":"surveillanceControl",
+        "isRequired":true,
+        "label":"Control y vigilancia",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"sustainableUse",
+        "isRequired":true,
+        "label":"Uso sustentable",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"administrativesExpenses",
+        "isRequired":true,
+        "label":"Gastos administrativos",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"socialActivities",
+        "isRequired":true,
+        "label":"Actividades sociales",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"monitoring",
+        "isRequired":true,
+        "label":"Gestión y monitoreo",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"capacitation",
+        "isRequired":true,
+        "label":"Capacitación",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"reforestation",
+        "isRequired":true,
+        "label":"Reforestación",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"infrastructure",
+        "isRequired":true,
+        "label":"Infraestructura",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      }
+    ]
+  },
+  "economic-indicators-form":{
+    "idReport":"economic-indicators-form",
+    "submitLabel":"GUARDAR",
+    "image":"economic-indicators-form.png",
+    "iconTitle":"Indicadores económicos",
+    "title":"Información económica",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"INDICADORES ECONÓMICOS",
+        "type":"title"
+      },
+      {
+        "label":"(Informe mensual)",
+        "type":"subtitle"
+      },
+      {
+        "id":"principalActivity",
+        "label":"Actividad principal",
+        "options":[
+          "Concha",
+          "Cangrejo rojo y azul",
+          "Pesca blanca",
+          "Camarón pomada",
+          "Concha patamula",
+          "Otro tipo de pesca",
+          "Agricultura",
+          "Turismo",
+          "Artesanias",
+          "Comercio",
+          "Restaurantes",
+          "Trabajador independiente",
+          "Funcionario público",
+          "Otros"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"averageIncome",
+        "label":"Ingreso promedio diario",
+        "options":[
+          "menor a $5",
+          "$5 a $10",
+          "$11 a $20",
+          "$21 a $30",
+          "$31 a $40",
+          "mayor a $40"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"alternativeActivities",
+        "label":"Actividad secundaria",
+        "options":[
+          "Cangrejo rojo y azul",
+          "Concha",
+          "Pesca blanca",
+          "Camarón pomada",
+          "Concha patamula",
+          "Otro tipo de pesca",
+          "Agricultura",
+          "Turismo",
+          "Artesanias",
+          "Comercio",
+          "Restaurantes",
+          "Trabajador independiente",
+          "Funcionario público",
+          "Otros"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"averageIncomeAlternatives",
+        "label":"Ingreso promedio secundario",
+        "options":[
+          "menor a $5",
+          "$5 a $10",
+          "$11 a $20",
+          "$21 a $30",
+          "$31 a $40",
+          "mayor a $40"
+        ],
+        "type":"select"
+      }
+    ]
+  },
+  "official-docs-form":{
+    "idReport":"official-docs-form",
+    "submitLabel":"GUARDAR",
+    "image":"official-docs-form.png",
+    "iconTitle":"Documentos oficiales",
+    "title":"Documentos oficiales",
+    "loadLast": true,
+    "showListBeforeForm": false,
+    "saveOnlyOne": true,
+    "options":[
+      {
+        "label":"DOCUMENTOS OFICIALES DE LA ORGANIZACIÓN",
+        "type":"title"
+      },
+      {
+        "id":"useCustodyAgreement",
+        "isRequired":false,
+        "label":"Acuerdo de uso y custodia",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"organizationStatutes",
+        "isRequired":false,
+        "label":"Estatutos organización",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"internalRegulation",
+        "isRequired":false,
+        "label":"Reglamento interno",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"internalRegulationDate",
+        "isRequired":false,
+        "label":"Fecha aprobación reglamento",
+        "placeholder":"Fecha de aprobación",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "label":"Datos organizativos",
+        "type":"title"
+      },
+      {
+        "id":"organizationName",
+        "isRequired":true,
+        "label":"Nombre organización",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"organizationLogo",
+        "isRequired":true,
+        "label":"Logo organización",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"summary",
+        "isRequired":true,
+        "label":"Resumen",
+        "placeholder":"Breve resumen de la organización (max 500 letras)",
+        "type":"inputTextArea",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"organizationType",
+        "label":"Tipo de organización",
+        "options":[
+          "Sector Cooperativo",
+          "Sector Asociativo",
+          "Sector Comunitario"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"organizationLocation",
+        "isRequired":true,
+        "label":"Localización",
+        "placeholder":"Sitio, parroquia, cantón y provincia",
+        "textHelp":"Especificar sitio, parroquia, cantón, provincia",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"custodyArea",
+        "isRequired":true,
+        "label":"Extensión Área de custodia(ha)",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"yearCreation",
+        "isRequired":true,
+        "label":"Año de creación",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "year-number"
+      },
+      {
+        "id":"sepsRegister",
+        "isRequired":false,
+        "label":"Registro en el SEPS",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"directorsRegister",
+        "isRequired":false,
+        "label":"Registro de directiva",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"directorsRegisterDate",
+        "isRequired":false,
+        "label":"Fecha aprobación registro directiva",
+        "placeholder":"Fecha de aprobación",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"legalExistence",
+        "isRequired":false,
+        "label":"Comprobante existencia legal",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"partnersDirectorsList",
+        "isRequired":false,
+        "label":"Listado socios",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"partnersListDate",
+        "isRequired":false,
+        "label":"Fecha aprobación listado",
+        "placeholder":"Fecha de aprobación",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "label":"Datos presidente",
+        "type":"title"
+      },
+      {
+        "id":"presidentName",
+        "isRequired":true,
+        "label":"Nombre",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"pin",
+        "isRequired":true,
+        "label":"Cédula",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"numberToString",
+        "validate": "pin-ecuador"
+      },
+      {
+        "id":"phone",
+        "isRequired":true,
+        "label":"Celular",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"numberToString",
+        "validate": "contact-mobile"
+      },
+      {
+        "id":"email",
+        "isRequired":true,
+        "label":"Correo",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName",
+        "validate": "contact-email"
+      },
+      {
+        "id":"agreements",
+        "label":"Convenios",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 5,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"agreementInfo",
+            "label":"Convenio",
+            "type":"groupInputs",
+            "image":"note.png",
+            "optionsToGroup":[
+              {
+                "id":"agreementType",
+                "label":"Tipo de convenio",
+                "options":[
+                  "Asistencia técnica",
+                  "Buena vecindad",
+                  "Cooperación",
+                  "Otros"
+                ],
+                "type":"select"
+              },
+              {
+                "id":"agreement",
+                "isRequired":true,
+                "label":"Convenio",
+                "type":"file"
+              },
+              {
+                "id":"startAgreementDate",
+                "isRequired":true,
+                "label":"Fecha desde",
+                "placeholder":"Seleccione la fecha",
+                "typeInput":"date",
+                "type":"calendar"
+              },
+              {
+                "id":"endAgreementDate",
+                "isRequired":true,
+                "label":"Fecha hasta",
+                "placeholder":"Seleccione la fecha",
+                "typeInput":"date",
+                "type":"calendar"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "organization-info-form":{
+    "idReport":"organization-info-form",
+    "submitLabel":"GUARDAR",
+    "image":"organization-info-form.png",
+    "iconTitle":"Información adicional",
+    "title":"Información adicional",
+    "loadLast": false,
+    "showListBeforeForm": true,
+    "saveOnlyOne": false,
+    "options":[
+      {
+        "label":"INFORMACIÓN ADICIONAL INFORME SEMESTRAL",
+        "type":"title"
+      },
+      {
+        "label":"Cesión/Fracción/ ampliación del área bajo custodia",
+        "type":"subtitle"
+      },
+      {
+        "id" : "cumpleReglaNoEnajenar",
+        "label" : "¿La organización cumple con la regla de no vender, renunciar o dividir el área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cumpleReglaNoEnajenarDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe si la organización cumple esta regla o no",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cumpleReglaNoEnajenar",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cumpleReglaNoEnajenarEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cumpleReglaNoEnajenar",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cumpleReglaNoAmpliar",
+        "label" : "¿La organización cumple con la regla de no ampliar el área de la custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cumpleReglaNoAmpliarDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe si la organización cumple esta regla o no",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cumpleReglaNoAmpliar",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cumpleReglaNoAmpliarEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cumpleReglaNoAmpliar",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cumpleReglaBuenaVecindad",
+        "label" : "¿Las organizaciones firmantes del acuerdo de buena vecindad respetan las reglas establecidas en el acuerdo de buena vecindad?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cumpleReglaBuenaVecindadDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe si se cumple las reglas del Acuerdo de buena vecindad",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cumpleReglaBuenaVecindad",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cumpleReglaBuenaVecindadEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cumpleReglaBuenaVecindad",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "pescadoresIndependientes",
+        "label" : "¿Se han encontrado pescadores independientes en su área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"pescadoresIndependientesDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe la frecuencia del ingreso, el número de pescadores que ingresen etc.",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "pescadoresIndependientes",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"pescadoresIndependientesEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "pescadoresIndependientes",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "pescadoresDeOtrasOrgs",
+        "label" : "¿Se han encontrado pescadores de otras organizaciones con AUSCEM en su área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"pescadoresDeOtrasOrgsDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe la frecuencia del ingreso, el número de pescadores que ingresen, el nombre de la organización al cual pertenece estos pescadores etc.",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "pescadoresDeOtrasOrgs",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"pescadoresDeOtrasOrgsEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "pescadoresDeOtrasOrgs",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "denuncioPescadoresNoAutorizados",
+        "label" : "¿Se ha puesto una denuncia por el ingreso no autorizado de pescadores que no son socios de la organización al área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"denuncioPescadoresNoAutorizadosDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe cuantas denuncias han puesto (si fue verbal, en físico, por manglar App etc.)",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "denuncioPescadoresNoAutorizados",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"denuncioPescadoresNoAutorizadosEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "denuncioPescadoresNoAutorizados",
+        "showIfSelected" : "true"
+      },
+      {
+        "label":"Uso Sostenible",
+        "type":"subtitle"
+      },
+      {
+        "id" : "todosRecurosBioacuaticos",
+        "label" : "¿Todos los socios realizan la actividad extractiva de recursos bioacuáticos del manglar?",
+        "type" : "toggle"
+      },
+      {
+        "id":"todosRecurosBioacuaticosDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describir cuantos socios aprovechan los recursos bioacuáticos del manglar, especificar que especie aprovechan",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "todosRecurosBioacuaticos",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"todosRecurosBioacuaticosEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "todosRecurosBioacuaticos",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "pescaFueraDelManglar",
+        "label" : "¿Los socios de la organización realizan actividades de pesca por fuera del manglar custodiado?",
+        "type" : "toggle"
+      },
+      {
+        "id":"pescaFueraDelManglarDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describir cuales especies pescan (pesca blanca, camarón, pata mula, langostino, mejillones, almejas etc.), el lugar de pesca (si es en mar, estero, en bajos), cuantos socios se dedican a esta actividad de pesca por fuera del manglar etc.",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "pescaFueraDelManglar",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"pescaFueraDelManglarEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "pescaFueraDelManglar",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "actividadesDeCria",
+        "label" : "¿La organización realizó actividades de cría, engorde o cultivo?",
+        "type" : "toggle"
+      },
+      {
+        "id":"actividadesDeCriaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe si realizan una de estas actividades, que especies y número de individuos aproximado",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "actividadesDeCria",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"actividadesDeCriaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "actividadesDeCria",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cumpleNormasCria",
+        "label" : "¿La organización cumple con la normativa ambiental para la cría, engorde o cultivo de especies bioacuáticas?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cumpleNormasCriaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe si ha gestionado permisos para esta actividad",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cumpleNormasCria",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cumpleNormasCriaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cumpleNormasCria",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "devuelveIndividuosDecomisados",
+        "label" : "¿Se devuelve los individuos decomisados por incumplimiento de normativa de pesca a espacios de cría y engorde?",
+        "type" : "toggle"
+      },
+      {
+        "id":"devuelveIndividuosDecomisadosDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Se describe lugar de ubicación de individuos decomisados, poner número de individuos decomisados devueltos al manglar en el semestre",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "devuelveIndividuosDecomisados",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"devuelveIndividuosDecomisadosEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "devuelveIndividuosDecomisados",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "actividadesTurismo",
+        "label" : "¿La organización realizó actividades de turismo ecológico?",
+        "type" : "toggle"
+      },
+      {
+        "id":"actividadesTurismoDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describir qué tipo de turistas visitan al área, número de turistas, servicios turísticos que prestan etc.",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "actividadesTurismo",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"actividadesTurismoEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "actividadesTurismo",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "normativaTuristica",
+        "label" : "¿La organización cumple con la normativa turística?",
+        "type" : "toggle"
+      },
+      {
+        "id":"normativaTuristicaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describir cómo cumplen normativa (transporte turísticas, guianza etc.)",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "normativaTuristica",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"normativaTuristicaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "normativaTuristica",
+        "showIfSelected" : "true"
+      },
+      {
+        "label":"Custodia del Manglar",
+        "type":"subtitle"
+      },
+      {
+        "id" : "cuentaSocioManglar",
+        "label" : "¿La asociación cuenta con Socio manglar?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cuentaSocioManglarDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describir en qué se invirtió el incentivo Socio manglar",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cuentaSocioManglar",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cuentaSocioManglarEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cuentaSocioManglar",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "actividadesEducacionAmbiental",
+        "label" : "¿La organización realizó o participó en actividades de Educación Ambiental?",
+        "type" : "toggle"
+      },
+      {
+        "id":"actividadesEducacionAmbientalDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe tipo de actividad y con quién se realizó (MAE, instituciones educativas, GAD etc.)",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "actividadesEducacionAmbiental",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"actividadesEducacionAmbientalEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "actividadesEducacionAmbiental",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "actividadesInvestigacion",
+        "label" : "¿La organización realizó o participó en actividades de investigación?",
+        "type" : "toggle"
+      },
+      {
+        "id":"actividadesInvestigacionDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Describe tipo de investigación, y con quién se realizó (Universidades, INP, MAE etc.)",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "actividadesInvestigacion",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"actividadesInvestigacionEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "actividadesInvestigacion",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cuentaConPermisos",
+        "label" : "¿La investigación cuenta con los debidos permisos?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cuentaConPermisosDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Se cuenta con permisos de MAE/INP/MPCEIP/SENESYT",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cuentaConPermisos",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cuentaConPermisosEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cuentaConPermisos",
+        "showIfSelected" : "true"
+      },
+      {
+        "label":"Monitoreo participativo del estado del manglar",
+        "type":"subtitle"
+      },
+      {
+        "id" : "evidencioMuerteArboles",
+        "label" : "¿Se evidenció muerte, enfermedad o alguna otra degradación de los árboles de manglar en el área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"evidencioMuerteArbolesDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "evidencioMuerteArboles",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"evidencioMuerteArbolesEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "evidencioMuerteArboles",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "evidencioMuerteBioacuaticos",
+        "label" : "¿Se evidenció muerte, enfermedad o alguna otra degradación de las especies bioacuáticas en el área bajo custodia (conchas y cangrejos)?",
+        "type" : "toggle"
+      },
+      {
+        "id":"evidencioMuerteBioacuaticosDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "evidencioMuerteBioacuaticos",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"evidencioMuerteBioacuaticosEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "evidencioMuerteBioacuaticos",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "evidencioMuerteFlora",
+        "label" : "¿Se evidenció muerte, enfermedad o alguna otra degradación de otras especies de flora en el área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"evidencioMuerteFloraDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "evidencioMuerteFlora",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"evidencioMuerteFloraEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "evidencioMuerteFlora",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "evidencioMuerteFauna",
+        "label" : "¿Se evidenció muerte, enfermedad o alguna otra degradación de otras especies de fauna en el área bajo custodia?",
+        "type" : "toggle"
+      },
+      {
+        "id":"evidencioMuerteFaunaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "evidencioMuerteFauna",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"evidencioMuerteFaunaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "evidencioMuerteFauna",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cambiosEnAgua",
+        "label" : "¿Se evidenció cambios en el color, olor o temperatura del agua?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cambiosEnAguaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cambiosEnAgua",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cambiosEnAguaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cambiosEnAgua",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cambiosSuelo",
+        "label" : "¿Se evidenció cambios en el color, olor o textura del suelo del manglar?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cambiosSueloDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cambiosSuelo",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cambiosSueloEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cambiosSuelo",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cambiosClima",
+        "label" : "¿Se evidenció anomalías en el clima como lluvias más fuertes que lo normal, épocas más secas que lo normal?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cambiosClimaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cambiosClima",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cambiosClimaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cambiosClima",
+        "showIfSelected" : "true"
+      },
+      {
+        "id" : "cambiosTemperatura",
+        "label" : "¿Se evidenció anomalías en el clima como temperaturas más frías o calientes que lo normal?",
+        "type" : "toggle"
+      },
+      {
+        "id":"cambiosTemperaturaDesc",
+        "isRequired":false,
+        "label":"Descripción",
+        "placeholder":"",
+        "textHelp":"Descripción breve de lo que evidenció",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName",
+        "showIfId": "cambiosTemperatura",
+        "showIfSelected": "true"
+      },
+      {
+        "id":"cambiosTemperaturaEvidencia",
+        "isRequired":false,
+        "label":"Evidencia",
+        "placeholder":"(En caso de haber)",
+        "type":"file",
+        "showIfId" : "cambiosTemperatura",
+        "showIfSelected" : "true"
+      }
+    ]
+  },
+  "plan-tracking-form":{
+    "idReport":"plan-tracking-form",
+    "submitLabel":"GUARDAR",
+    "image":"plan-tracking-form.png",
+    "iconTitle":"Informe semestral",
+    "title":"Informe semestral",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"INFORME SEMESTRAL",
+        "type":"title"
+      },
+      {
+        "label":"(Informe mensual)",
+        "type":"subtitle"
+      },
+      {
+        "id":"pannedActivities",
+        "label":"Actividades planificadas",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 100,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"plannedActivity",
+            "label":"Actividad",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"activityDescription",
+                "label":"Actividad",
+                "options":"OPTIONS_ACTIVITIES_API",
+                "type":"select"
+              },
+              {
+                "id":"averageDone",
+                "isRequired":true,
+                "label":"% de cumplimiento",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"decimal",
+                "validate": "percentage"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "deforestation-form":{
+    "idReport":"deforestation-form",
+    "submitLabel":"GUARDAR",
+    "image":"deforestation-form.png",
+    "iconTitle":"Deforestación",
+    "title":"Información ecológica",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"DEFORESTACIÓN",
+        "type":"title"
+      },
+      {
+        "id":"probableCause",
+        "label":"Causa probable",
+        "options":[
+          "Ampliación camaronera",
+          "Mantenimiento de muros de camaronera",
+          "Extracción de madera",
+          "Ampliación del espacio del estero",
+          "Contrucción de casas u otras infraestructuras",
+          "Actividades productivas(agrícola, avícola, porcícola, etc)",
+          "Otros"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"deforestedArea",
+        "label":"Área deforestada",
+        "options":[
+          "Mayor a 1 ha",
+          "Menor a 1 ha"
+        ],
+        "type":"select"
+      },
+      {
+        "label":"Localización de la afectación",
+        "type":"title"
+      },
+      {
+        "id":"custodyArea",
+        "label":"Área custodia",
+        "options":[
+          "Dentro",
+          "Fuera"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"protectedArea",
+        "label":"Área protegida",
+        "options":[
+          "Dentro",
+          "Fuera"
+        ],
+        "type":"select"
+      },
+      {
+        "label":"Ubicación geográfica",
+        "type":"title"
+      },
+      {
+        "id":"location",
+        "label":"Ubicación",
+        "options":[
+          "GPS",
+          "Manual"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"latlong",
+        "label":"Lat/Long",
+        "showIfId":"location",
+        "showIfSelected":"GPS",
+        "type":"gpsInput"
+      },
+      {
+        "id":"address",
+        "isRequired":true,
+        "label":"Dirección",
+        "placeholder":"Ingrese su dirección actual",
+        "showIfId":"location",
+        "showIfSelected":"Manual",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"estuary",
+        "isRequired":true,
+        "label":"Estuario",
+        "placeholder":"Ingrese el estuario",
+        "showIfId":"location",
+        "showIfSelected":"Manual",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"community",
+        "isRequired":true,
+        "label":"Comunidad",
+        "placeholder":"Ingrese la comunidad",
+        "showIfId":"location",
+        "showIfSelected":"Manual",
+        "type":"input",
+        "typeInput":"textPersonName"
+      }
+    ]
+  },
+  "reforestation-form":{
+    "idReport":"reforestation-form",
+    "submitLabel":"GUARDAR",
+    "image":"reforestation-form.png",
+    "iconTitle":"Reforestación",
+    "title":"Información ecológica",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"REFORESTACIÓN",
+        "type":"title"
+      },
+      {
+        "label":"(Informe eventual)",
+        "type":"subtitle"
+      },
+      {
+        "id":"reforestedArea",
+        "isRequired":true,
+        "label":"Área reforestada(m2)",
+        "placeholder":"Área reforestada en m2",
+        "type":"input",
+        "typeInput":"decimal"
+      },
+      {
+        "id":"mangleSembradoCount",
+        "isRequired":true,
+        "label":"# mangle sembrados",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"plantingDate",
+        "isRequired":true,
+        "label":"Fecha de la siembra",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"plantingState",
+        "label":"Estado de siembra",
+        "options":[
+          "Siembra",
+          "Reposición",
+          "Mantenimiento",
+          "Coronamiento",
+          "% de prendimiento"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"averageState",
+        "label":"Porcentaje",
+        "placeholder":"Ingrese el porcentaje",
+        "showIfId":"plantingState",
+        "showIfSelected":"% de prendimiento",
+        "type":"input",
+        "typeInput":"decimal",
+        "validate": "percentage"
+      },
+      {
+        "id":"entities",
+        "label":"Entidades que brindaron apoyo",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 5,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"entityName",
+            "isRequired":false,
+            "label":"Nombre de la entidad",
+            "placeholder":"",
+            "type":"input",
+            "typeInput":"textPersonName"
+          }
+        ]
+      },
+      {
+        "id":"vertices",
+        "label":"Puntos GPS de los vértices",
+        "minExtraOptions" : 3,
+        "maxExtraOptions" : 20,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"vertice",
+            "label":"Vértice",
+            "type":"gpsInput"
+          }
+        ]
+      }
+    ]
+  },
+  "management-plan-form":{
+    "idReport":"management-plan-form",
+    "submitLabel":"GUARDAR",
+    "image":"management-plan-form.png",
+    "iconTitle":"Plan de manejo",
+    "title":"Plan de manejo",
+    "loadLast": true,
+    "showListBeforeForm": false,
+    "saveOnlyOne": true,
+    "options":[
+      {
+        "label":"PLAN DE MANEJO",
+        "type":"title"
+      },
+      {
+        "id":"programs",
+        "label":"Programas del plan de manejo",
+        "minExtraOptions":1,
+        "maxExtraOptions":5,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"programsGroup",
+            "label":"Información Programa",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"program",
+                "isRequired": true,
+                "label":"Programa",
+                "placeholder":"",
+                "type":"input",
+                "typeInput":"textPersonName"
+              },
+              {
+                "id":"objectives",
+                "label":"Objetivos del programa",
+                "minExtraOptions":1,
+                "maxExtraOptions":5,
+                "type":"addOption",
+                "optionsToAdd":[
+                  {
+                    "id":"objectivesGroup",
+                    "label":"Información Objetivo",
+                    "type":"groupInputs",
+                    "image":"info.png",
+                    "optionsToGroup":[
+                      {
+                        "id":"objective",
+                        "isRequired": true,
+                        "label":"Objetivo",
+                        "placeholder":"",
+                        "type":"input",
+                        "typeInput":"textPersonName"
+                      },
+                      {
+                        "id":"activities",
+                        "label":"Actividades del programa",
+                        "minExtraOptions":1,
+                        "maxExtraOptions":5,
+                        "type":"addOption",
+                        "optionsToAdd":[
+                          {
+                            "id":"activitiesGroup",
+                            "label":"Información Actividad",
+                            "type":"groupInputs",
+                            "image":"info.png",
+                            "optionsToGroup":[
+                              {
+                                "id":"activity",
+                                "isRequired": true,
+                                "label":"Actividad",
+                                "placeholder":"",
+                                "type":"input",
+                                "typeInput":"textPersonName"
+                              },
+                              {
+                                "id":"indicators",
+                                "label":"Indicadores de la actividad",
+                                "minExtraOptions":1,
+                                "maxExtraOptions":5,
+                                "type":"addOption",
+                                "optionsToAdd":[
+                                  {
+                                    "id":"indicator",
+                                    "isRequired": false,
+                                    "label":"Indicador",
+                                    "placeholder":"",
+                                    "type":"input",
+                                    "typeInput":"textPersonName"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "control-form":{
+    "idReport":"control-form",
+    "submitLabel":"GUARDAR",
+    "image":"control-form.png",
+    "iconTitle":"Control y vigilancia",
+    "title":"Información ecológica",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"CONTROL Y VIGILANCIA",
+        "type":"title"
+      },
+      {
+        "label":"(Informe eventual)",
+        "type":"subtitle"
+      },
+      {
+        "id":"responsiblePatrullaje",
+        "isRequired":true,
+        "label":"Responsable del patrullaje",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"sector",
+        "label":"Sector",
+        "options":"OPTIONS_SECTORS_API",
+        "type":"select"
+      },
+      {
+        "id":"startSite",
+        "isRequired":true,
+        "label":"Sitio de salida",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"endSite",
+        "isRequired":true,
+        "label":"Sitio de llegada",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"routeLocalities",
+        "isRequired":true,
+        "label":"Recorrido",
+        "placeholder":"",
+        "textHelp":"Ingrese los lugares recorridos durante la vigilancia",
+        "type":"inputWithHelp",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"registerDetails",
+        "isRequired":true,
+        "label":"Detalles en registro",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"routeDuration",
+        "isRequired":true,
+        "label":"Duración del recorrido (min)",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"routeDate",
+        "isRequired":true,
+        "label":"Fecha",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"internalAuditor",
+        "isRequired":true,
+        "label":"Auditor interno",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id" : "eventExists",
+        "label" : "¿Alguna novedad durante el patrullaje?",
+        "type" : "toggle"
+      },
+      {
+        "id":"type",
+        "isRequired":false,
+        "label":"Tipo de novedad",
+        "placeholder":"",
+        "showIfId" : "eventExists",
+        "showIfSelected" : "true",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id" : "verification",
+        "isRequired" : false,
+        "label" : "Medio de verificación",
+        "placeholder" : "",
+        "showIfId" : "eventExists",
+        "showIfSelected" : "true",
+        "type" : "input",
+        "typeInput" : "textPersonName"
+      }
+    ]
+  },
+  "fishing-effort-form":{
+    "idReport":"fishing-effort-form",
+    "submitLabel":"GUARDAR",
+    "image":"fishing-effort-form.png",
+    "iconTitle":"Esfuerzo Pesquero",
+    "title":"Esfuerzo pesquero",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"ESFUERZO PESQUERO",
+        "type":"title"
+      },
+      {
+        "id":"fishingEffortDate",
+        "isRequired": true,
+        "label":"Fecha",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"activePartners",
+        "isRequired": true,
+        "label":"Número socios activos",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      }
+    ]
+  }
+}

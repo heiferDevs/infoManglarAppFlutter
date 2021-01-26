@@ -1,0 +1,2078 @@
+{
+  "tala" : {
+    "idReport" : "tala",
+    "submitLabel" : "Reportar",
+    "title" : "TALA",
+    "image": "tala.png",
+    "iconTitle": "Tala",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "type",
+      "label" : "Causa posible:",
+      "options" : [ "Ampliación camaronera", "Extracción de madera", "Mantenimiento de muros", "Mantenimiento de estero", "Establecimiento de estructura", "Quema", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "area",
+      "label" : "Superficie:",
+      "options" : [ "Menor a 10 metros²", "10 metros² a 1 hectárea", "Mayor a 1 hectárea" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "contaminacion" : {
+    "idReport" : "contaminacion",
+    "submitLabel" : "Reportar",
+    "title" : "CONTAMINACIÓN",
+    "image": "contaminacion.png",
+    "iconTitle": "Contaminación",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Contaminación por basura", "Contaminación por aguas servidas", "Contaminación por combustibles", "Contaminación por productos químicos", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "invasiones" : {
+    "idReport" : "invasiones",
+    "submitLabel" : "Reportar",
+    "title" : "INVASIONES",
+    "image": "invasiones.png",
+    "iconTitle": "Invasiones",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Extracción no autorizada de concha", "Extracción no autorizada de cangrejo", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "delincuencia_maritima" : {
+    "idReport" : "delincuencia_maritima",
+    "submitLabel" : "Reportar",
+    "title" : "DELINCUENCIA MARÍTIMA",
+    "image": "delincuencia_maritima.png",
+    "iconTitle": "Delincuenca marítima",
+    "options" : [ {
+      "label" : "Descripción del delito",
+      "type" : "title"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Robo de lancha", "Robo de motor", "Robo cosecha", "Robo dinero", "Robo otros objetos de valor", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "tecnicas_pesca" : {
+    "idReport" : "tecnicas_pesca",
+    "submitLabel" : "Reportar",
+    "title" : "TÉCNICAS DE PESCA NO PERMITIDAS",
+    "image": "tecnicas_pesca.png",
+    "iconTitle": "Técnicas de pesca",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Pesqueria industrial", "Pesca artesanal", "Pesca incidental", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "industrial_type",
+      "label" : "Tipo industrial:",
+      "options" : [ "Red de arrastre", "Changa", "Pesca dentro de 8 millas náuticas", "Pesca con red (cerco de jareta)" ],
+      "showIfId" : "type",
+      "showIfSelected" : "Pesqueria industrial",
+      "type" : "select"
+    }, {
+      "id" : "artesanal_type",
+      "label" : "Tipo artesanal:",
+      "options" : [ "Pesca con explosivos o compuestos químicos", "Pesca con red de monofilamento" ],
+      "showIfId" : "type",
+      "showIfSelected" : "Pesca artesanal",
+      "type" : "select"
+    }, {
+      "id" : "fishing_type",
+      "label" : "Tipo pesca incidental:",
+      "options" : [ "Tiburones", "Mantarrayas", "Tortugas", "Delfines", "Lobos marinos", "Otros" ],
+      "showIfId" : "type",
+      "showIfSelected" : "Pesca incidental",
+      "type" : "selectMultiple"
+    }, {
+      "id" : "fishing_type_others",
+      "isRequired" : true,
+      "label" : "¿Especifique la especie?:",
+      "placeholder" : "Especifique que otra especie",
+      "showIfId" : "fishing_type",
+      "showIfSelected" : "Otros",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "epoca_veda" : {
+    "idReport" : "epoca_veda",
+    "submitLabel" : "Reportar",
+    "title" : "RECOLECCIÓN EN EPOCA DE VEDA",
+    "image": "epoca_veda.png",
+    "iconTitle": "Epoca de veda",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "date",
+      "label" : "Fecha del hecho:",
+      "placeholder" : "Seleccione fecha",
+      "type" : "calendar",
+      "typeInput" : "date"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Cangrejo rojo", "Cangrejo azul", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "vida_silvestre" : {
+    "idReport" : "vida_silvestre",
+    "submitLabel" : "Reportar",
+    "title" : "HALLAZGOS DE VIDA SILVESTRE",
+    "image": "vida_silvestre.png",
+    "iconTitle": "Hallazgos de vida silvestre",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "beaching_reason",
+      "label" : "Causas de Varamiento:",
+      "options" : [ "Envuelto en una red", "Por heridas", "Por falta de una de sus extremidades", "Por envenenamiento" ],
+      "type" : "select"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Tortugas/Cocodrilos", "Aves", "Delfines", "Ballenas", "Lobos marinos", "Peces y tiburones", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "animals_stranded_count",
+      "label" : "Animales varados:",
+      "placeholder" : "Número de animales varados",
+      "type" : "input",
+      "typeInput" : "number"
+    }, {
+      "id" : "animals_stranded_size",
+      "label" : "Tamaño aprox:",
+      "placeholder" : "Tamaño aproximado",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "sea_conditions",
+      "label" : "Condiciones mar:",
+      "options" : [ "Marea alta", "Marea baja", "Oleaje", "Otro" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "trafico_especies" : {
+    "idReport" : "trafico_especies",
+    "submitLabel" : "Reportar",
+    "title" : "TRÁFICO Y PESCA DE ESPECIES AMENAZADAS",
+    "image": "trafico_especies.png",
+    "iconTitle": "Tráfico y pesca",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "anomaly_form_subtype",
+      "label" : "Tipo denuncia:",
+      "options" : [ "Tráfico de vida silvestre", "Pesca de especies amenazadas" ],
+      "type" : "select"
+    }, {
+      "id" : "type",
+      "label" : "Tipo:",
+      "options" : [ "Tortugas/Cocodrilos", "Aves", "Delfines", "Ballenas", "Lobos marinos", "Peces y tiburones", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  },
+  "tallas_minimas" : {
+    "idReport" : "tallas_minimas",
+    "submitLabel" : "Reportar",
+    "title" : "INCUMPLIMIENTO DE TALLAS MINIMAS",
+    "image": "tallas_minimas.png",
+    "iconTitle": "Tallas minimas",
+    "options" : [ {
+      "label" : "Descripción de la anomalía",
+      "type" : "title"
+    }, {
+      "id" : "type",
+      "label" : "Tipo especie:",
+      "options" : [ "Concha", "Cangrejo", "Otros" ],
+      "type" : "select"
+    }, {
+      "id" : "custody",
+      "label" : "Área custodia:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "protected_area",
+      "label" : "Área protegida:",
+      "options" : [ "Dentro", "Fuera" ],
+      "type" : "select"
+    }, {
+      "id" : "description",
+      "isRequired" : true,
+      "label" : "Descripción:",
+      "placeholder" : "Ingrese la descripción de lo sucedido",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "individuals_requisitioned_info",
+      "label" : "¿Tengo información sobre individuos y requisados?",
+      "type" : "toggle"
+    }, {
+      "id" : "individuals",
+      "label" : "Individuos:",
+      "placeholder" : "Ingrese información individuos",
+      "showIfId" : "individuals_requisitioned_info",
+      "showIfSelected" : "true",
+      "type" : "input",
+      "typeInput" : "number"
+    }, {
+      "id" : "individuals_requisitioned",
+      "label" : "Requisados:",
+      "placeholder" : "Ingrese información requisados",
+      "showIfId" : "individuals_requisitioned_info",
+      "showIfSelected" : "true",
+      "type" : "input",
+      "typeInput" : "number"
+    }, {
+      "label" : "Ubicación Geográfica",
+      "type" : "title"
+    }, {
+      "id" : "province",
+      "label" : "Provincia:",
+      "options" : [ "El Oro", "Esmeraldas", "Guayas", "Manabí", "Santa Elena" ],
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Machala", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma" ],
+      "showIfId" : "province",
+      "showIfSelected" : "El Oro",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Atacames", "Eloy Alfaro", "Esmeraldas", "Muisne", "Quinindé", "Rioverde", "San Lorenzo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Esmeraldas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Coronel Marcelino Maridueña", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Guayas",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "Bolívar", "Chone", "El Carmen", "Flavio Alfaro", "Jama", "Jaramijó", "Jipijapa", "Junín", "Manta", "Montecristi", "Olmedo", "Paján", "Pedernales", "Pichincha", "Portoviejo", "Puerto López", "Rocafuerte", "San Vicente", "Santa Ana", "Sucre", "Tosagua", "Veinticuatro de Mayo" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Manabí",
+      "type" : "select"
+    }, {
+      "id" : "canton",
+      "label" : "Cantón:",
+      "options" : [ "La Libertad", "Salinas", "Santa Elena" ],
+      "showIfId" : "province",
+      "showIfSelected" : "Santa Elena",
+      "type" : "select"
+    }, {
+      "id" : "location",
+      "label" : "Ubicación:",
+      "options" : [ "GPS", "Manual" ],
+      "type" : "select"
+    }, {
+      "id" : "latlong",
+      "label" : "Lat/Long:",
+      "showIfId" : "location",
+      "showIfSelected" : "GPS",
+      "type" : "gpsInput"
+    }, {
+      "id" : "address",
+      "isRequired" : true,
+      "label" : "Dirección:",
+      "placeholder" : "Ingrese su dirección actual",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "estuary",
+      "isRequired" : true,
+      "label" : "Estuario:",
+      "placeholder" : "Ingrese el estuario",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "community",
+      "isRequired" : true,
+      "label" : "Comunidad:",
+      "placeholder" : "Ingrese la comunidad",
+      "showIfId" : "location",
+      "showIfSelected" : "Manual",
+      "type" : "input",
+      "typeInput" : "textPersonName"
+    }, {
+      "id" : "offenders",
+      "label" : "Presuntos Infractores",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [
+        {
+          "id" : "offender_info",
+          "label" : "Presunto infractor",
+          "type" : "groupInputs",
+          "image": "perfil.png",
+          "optionsToGroup": [ {
+            "id" : "offender_name",
+            "isRequired" : true,
+            "label" : "Nombre:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_pin",
+            "isRequired" : true,
+            "label" : "Cédula:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_phone",
+            "isRequired" : true,
+            "label" : "Teléfono:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "number"
+          }, {
+            "id" : "offender_address",
+            "isRequired" : true,
+            "label" : "Dirección:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          }, {
+            "id" : "offender_additional_information",
+            "isRequired" : true,
+            "label" : "Info Adicional:",
+            "placeholder" : "",
+            "type" : "input",
+            "typeInput" : "text"
+          } ]
+        } ]
+    }, {
+      "id" : "evidences",
+      "label" : "Fotos/Videos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "maxExtraOptions" : 8,
+      "optionsToAdd": [ {
+        "id" : "evidence_info",
+        "label" : "Fotos/Videos",
+        "type" : "groupInputs",
+        "image": "photo.png",
+        "optionsToGroup": [ {
+          "id" : "evidence_file_info",
+          "isRequired" : true,
+          "label" : "Foto/Video:",
+          "placeholder" : "",
+          "type" : "file"
+        }, {
+          "id" : "evidence_description",
+          "isRequired" : true,
+          "label" : "Descripción:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        } ]
+      } ]
+    }, {
+      "id" : "witnesses",
+      "label" : "Presuntos testigos",
+      "type" : "addOption",
+      "minExtraOptions" : 1,
+      "optionsToAdd": [ {
+        "id" : "witness_info",
+        "label" : "Presunto testigo",
+        "type" : "groupInputs",
+        "image": "perfil.png",
+        "optionsToGroup": [ {
+          "id" : "witness_name",
+          "isRequired" : true,
+          "label" : "Nombre:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "text"
+        }, {
+          "id" : "witness_phone",
+          "isRequired" : true,
+          "label" : "Teléfono:",
+          "placeholder" : "",
+          "type" : "input",
+          "typeInput" : "number"
+        } ]
+      } ]
+    }, {
+      "id" : "feel_danger",
+      "label" : "¿Sientes peligro al hacer esta denuncia?",
+      "type" : "toggle"
+    }, {
+      "id" : "hide_identity",
+      "label" : "¿Quieres ocultar tu identidad en el proceso?",
+      "type" : "toggle"
+    } ]
+  }
+}

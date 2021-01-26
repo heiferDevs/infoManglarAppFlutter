@@ -1,0 +1,84 @@
+{
+  "idReport" : "register",
+  "options" : [ {
+    "id" : "cedula",
+    "isRequired" : true,
+    "label" : "Cedula",
+    "placeholder" : "Ingrese su cédula",
+    "type" : "input",
+    "typeInput" : "numberToString",
+    "validate": "pin-ecuador"
+  }, {
+    "id" : "name",
+    "isRequired" : true,
+    "label" : "Nombre",
+    "placeholder" : "Ingrese su nombre",
+    "type" : "input",
+    "typeInput" : "textPersonName"
+  }, {
+    "id" : "telefono",
+    "isRequired" : true,
+    "label" : "Telefono",
+    "placeholder" : "Ingrese su número convencional",
+    "type" : "input",
+    "typeInput" : "numberToString",
+    "validate": "contact-number"
+  }, {
+    "id" : "celular",
+    "isRequired" : true,
+    "label" : "Celular",
+    "placeholder" : "Ingrese su celular",
+    "type" : "input",
+    "typeInput" : "numberToString",
+    "validate": "contact-mobile"
+  }, {
+    "id" : "email",
+    "isRequired" : true,
+    "label" : "Correo",
+    "placeholder" : "Ingrese su correo",
+    "type" : "input",
+    "typeInput" : "textEmailAddress",
+    "validate": "contact-email"
+  }, {
+    "id" : "direccion",
+    "isRequired" : true,
+    "label" : "Dirección",
+    "placeholder" : "Ingrese su dirección",
+    "type" : "input",
+    "typeInput" : "textPersonName"
+  }, {
+    "id" : "organization",
+    "isRequired" : true,
+    "label" : "Organización",
+    "placeholder" : "Ingrese su Organización",
+    "type" : "input",
+    "typeInput" : "textPersonName"
+  }, {
+    "id" : "treatment",
+    "label" : "Tratamiento",
+    "options" : ["se_carga_from_db"],
+    "type" : "select"
+  }, {
+    "id" : "nationality",
+    "label" : "Nacionalidad",
+    "options" : ["se_carga_from_db"],
+    "type" : "select"
+  }, {
+    "id" : "province",
+    "label" : "Provincia",
+    "options" : ["Seleccione"],
+    "type" : "select"
+  }, {
+    "id" : "canton",
+    "label" : "Cantón",
+    "options" : ["Seleccione"],
+    "type" : "select"
+  }, {
+    "id" : "parroquia",
+    "label" : "Parroquia",
+    "options" : ["Seleccione"],
+    "type" : "select"
+  } ],
+  "submitLabel" : "Registrar",
+  "title" : "REGISTRATE"
+}

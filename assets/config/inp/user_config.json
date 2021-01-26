@@ -1,0 +1,95 @@
+{
+  "nav-options": [
+    {
+      "id": "forms",
+      "title": "FORMULARIOS",
+      "image": "formularios_icon.png",
+      "type": "sub-nav",
+      "sub-options": [
+        {
+          "id": "info-orgs",
+          "title": "INFORMES",
+          "type": "form-menu",
+          "forms": ["technical-report-form"]
+        }
+      ]
+    },
+    {
+      "id": "stats",
+      "title": "ESTADISTICAS",
+      "image": "stat_icon.png",
+      "type": "screen"
+    },
+    {
+      "id": "reports",
+      "title": "REPORTES",
+      "image": "report_icon.png",
+      "type": "screen"
+    },
+    {
+      "id": "geoportal",
+      "title": "GEOPORTAL",
+      "image": "geoportal_icon.png",
+      "type": "screen"
+    },
+    {
+      "id": "showcase",
+      "title": "VITRINA ORGANIZACIONES",
+      "image": "vitrina_icon.png",
+      "type": "screen"
+    },
+    {
+      "id": "options",
+      "title": "OPCIONES",
+      "image": "options_icon.png",
+      "type": "sub-nav",
+      "sub-options": [
+        {
+          "id": "profile",
+          "title": "PERFIL",
+          "type": "screen"
+        },
+        {
+          "id": "infoApp",
+          "title": "DISEÑO INFOMANGLAR",
+          "type": "screen"
+        },
+        {
+          "id": "norm_constitucion_republica",
+          "title": "CONSTITUCIÓN DE LA REPUBLICA",
+          "type": "screen"
+        },
+        {
+          "id": "norm_codigo_organico",
+          "title": "CÓDIGO ORGÁNICO DEL AMBIENTE",
+          "type": "screen"
+        },
+        {
+          "id": "ley_pesca_desarrollo",
+          "title": "LEY DE PESCA Y DESARROLLO PESQUERO",
+          "type": "screen"
+        },
+        {
+          "id": "reglamento_coa",
+          "title": "REGLAMENTO DEL COA",
+          "type": "screen"
+        },
+        {
+          "id": "legislacion_mae",
+          "title": "LEGISLACIÓN AMBIENTAL SECUNDARIA MAE",
+          "type": "screen"
+        },
+        {
+          "id": "auscm",
+          "title": "ACUERDOS DE USO SOSTENIBLE Y CUSTODIA DEL ECOSISTEMA MANGLAR DEL ECOSISTEMA MANGLAR",
+          "type": "screen"
+        },
+        {
+          "id": "exit",
+          "title": "SALIR",
+          "type": "exit"
+        }
+      ]
+    }
+  ]
+}

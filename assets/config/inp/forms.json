@@ -1,0 +1,26 @@
+{
+  "technical-report-form":{
+    "idReport":"technical-report-form",
+    "submitLabel":"GUARDAR",
+    "image":"technical-report-form.png",
+    "iconTitle":"Informe técnico",
+    "title":"Informe técnico",
+    "loadLast": false,
+    "showListBeforeForm": true,
+    "saveOnlyOne": false,
+    "options":[
+      {
+        "label":"INFORME TÉCNICO",
+        "type":"title"
+      },
+      {
+        "id":"reportInp",
+        "isRequired":true,
+        "label":"Informe INP",
+        "placeholder":"",
+        "type":"file"
+      }
+    ]
+  }
+
+}

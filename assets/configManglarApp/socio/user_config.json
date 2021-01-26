@@ -1,0 +1,17 @@
+{
+  "id":"formsManglarApp",
+  "title":"MENÚ",
+  "subTitle":"Seleccione lo que quiere reportar",
+  "type":"form-menu",
+  "forms":[
+    "tala",
+    "contaminacion",
+    "invasiones",
+    "delincuencia_maritima",
+    "tecnicas_pesca",
+    "epoca_veda",
+    "vida_silvestre",
+    "trafico_especies",
+    "tallas_minimas"
+  ]
+}

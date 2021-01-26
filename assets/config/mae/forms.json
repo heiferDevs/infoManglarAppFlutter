@@ -1,0 +1,165 @@
+{
+  "mapping-form":{
+    "idReport":"mapping-form",
+    "submitLabel":"GUARDAR",
+    "image":"mapping-form.png",
+    "iconTitle":"Cartografía",
+    "title":"Cartografía",
+    "loadLast": true,
+    "showListBeforeForm": false,
+    "saveOnlyOne": true,
+    "options":[
+      {
+        "label":"CARTOGRAFÍA",
+        "type":"title"
+      },
+      {
+        "id":"organizationsGeoJson",
+        "label":"Cartografía Organizaciones",
+        "type":"addOption",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 30,
+        "optionsToAdd":[
+          {
+            "id":"organizationGeoJson",
+            "label":"Cartografía Organización",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"organizationName",
+                "label":"Organización",
+                "options":"OPTIONS_ORGS_API",
+                "type":"select"
+              },
+              {
+                "id":"fileGeoJson",
+                "isRequired":true,
+                "label":"GeoJson",
+                "placeholder":"",
+                "type":"fileGeoJson"
+              },
+              {
+                "id":"mappingDate",
+                "isRequired": true,
+                "label":"Fecha aprobación",
+                "placeholder":"Fecha de aprobación",
+                "typeInput":"date",
+                "type":"calendar"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "limits-form":{
+    "idReport":"limits-form",
+    "submitLabel":"GUARDAR",
+    "image":"limits-form.png",
+    "iconTitle":"Límites",
+    "title":"Límites",
+    "loadLast": true,
+    "showListBeforeForm": false,
+    "saveOnlyOne": true,
+    "options":[
+      {
+        "label":"LÍMITES",
+        "type":"title"
+      },
+      {
+        "id":"organizationsGeoJson",
+        "label":"Límites de Organizaciones",
+        "type":"addOption",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 30,
+        "optionsToAdd":[
+          {
+            "id":"organizationGeoJson",
+            "label":"Límite Organización",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"organizationName",
+                "label":"Organización",
+                "options":"OPTIONS_ORGS_API",
+                "type":"select"
+              },
+              {
+                "id":"fileGeoJson",
+                "isRequired":true,
+                "label":"GeoJson",
+                "placeholder":"",
+                "type":"fileGeoJson"
+              },
+              {
+                "id":"mappingDate",
+                "isRequired": true,
+                "label":"Fecha aprobación",
+                "placeholder":"Fecha de aprobación",
+                "typeInput":"date",
+                "type":"calendar"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "semi-annual-report-form":{
+    "idReport":"semi-annual-report-form",
+    "submitLabel":"GUARDAR",
+    "image":"semi-annual-report-form.png",
+    "iconTitle":"Informe semestral",
+    "title":"Informe semestral",
+    "loadLast": false,
+    "showListBeforeForm": true,
+    "saveOnlyOne": false,
+    "options":[
+      {
+        "label":"INFORME SEMESTRAL",
+        "type":"title"
+      },
+      {
+        "id":"organizationName",
+        "label":"Organización",
+        "options":"OPTIONS_ORGS_API",
+        "type":"select"
+      },
+      {
+        "id":"semiAnnual",
+        "label":"Semestre",
+        "options":[
+          "Enero-Julio",
+          "Agosto-Diciembre"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"yearReport",
+        "isRequired":true,
+        "label":"Año",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "year-number"
+      },
+      {
+        "id":"reportApproved",
+        "isRequired":true,
+        "label":"Informe Semestral",
+        "placeholder":"",
+        "type":"file"
+      },
+      {
+        "id":"reportSgmc",
+        "isRequired":true,
+        "label":"Carta oficial del SGMC",
+        "placeholder":"",
+        "type":"file"
+      }
+    ]
+  }
+
+}

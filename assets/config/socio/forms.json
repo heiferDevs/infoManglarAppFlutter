@@ -1,0 +1,425 @@
+{
+  "shell-collection-form":{
+    "idReport":"shell-collection-form",
+    "submitLabel":"GUARDAR",
+    "image":"shell-collection-form.png",
+    "iconTitle":"Recolección de conchas",
+    "title":"Recolección de conchas",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"RECOLECCIÓN DE CONCHAS",
+        "type":"title"
+      },
+      {
+        "label":"(Informe diario)",
+        "type":"subtitle"
+      },
+      {
+        "id":"shellPeriod",
+        "label":"Periodo",
+        "options":[
+          "Aguaje",
+          "Quiebra"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"hoursWorked",
+        "isRequired":true,
+        "label":"# horas trabajadas",
+        "placeholder":"",
+        "typeInput":"number",
+        "type":"input",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"tuberculosasShellsCount",
+        "isRequired":true,
+        "label":"# conchas A. Tuberculosa",
+        "placeholder":"",
+        "typeInput":"number",
+        "type":"input",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"similisShellsCount",
+        "isRequired":true,
+        "label":"# conchas A. Similis",
+        "placeholder":"",
+        "typeInput":"number",
+        "type":"input",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"collectedGreaterCount",
+        "isRequired":true,
+        "label":"# recolectadas mayor a 4.5cm",
+        "placeholder":"",
+        "typeInput":"number",
+        "type":"input",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"sectorName",
+        "label":"Sector",
+        "options":"OPTIONS_SECTORS_API",
+        "type":"select"
+      },
+      {
+        "id":"collectorName",
+        "isRequired":true,
+        "label":"Nombre recolector",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"collectorDate",
+        "isRequired":true,
+        "label":"Fecha de recolección",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      }
+    ]
+  },
+  "crab-collection-form":{
+    "idReport":"crab-collection-form",
+    "submitLabel":"GUARDAR",
+    "image":"crab-collection-form.png",
+    "iconTitle":"Recolección de cangrejos",
+    "title":"Recolección de cangrejos",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"RECOLECCIÓN DE CANGREJOS",
+        "type":"title"
+      },
+      {
+        "label":"(Informe diario)",
+        "type":"subtitle"
+      },
+      {
+        "id":"crabPeriod",
+        "label":"Periodo",
+        "options":[
+          "Aguaje",
+          "Quiebra"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"hoursWorked",
+        "isRequired":true,
+        "label":"# horas trabajadas",
+        "placeholder":"",
+        "typeInput":"number",
+        "type":"input",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"crabCollectedCount",
+        "isRequired":true,
+        "label":"# cangrejos recolectados",
+        "placeholder":"",
+        "typeInput":"number",
+        "type":"input",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"quedadosCrabs",
+        "isRequired":true,
+        "label":"# cangrejos quedados",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"femalesReturned",
+        "isRequired":true,
+        "label":"# hembras devueltas",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"collectedGreaterCount",
+        "isRequired":true,
+        "label":"# recolectados mayor a 7.5cm",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"sectorName",
+        "label":"Sector",
+        "options":"OPTIONS_SECTORS_API",
+        "type":"select"
+      },
+      {
+        "id":"collectorName",
+        "isRequired":true,
+        "label":"Nombre recolector",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"collectorDate",
+        "isRequired":true,
+        "label":"Fecha de recolección",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      }
+    ]
+  },
+  "shell-size-form":{
+    "idReport":"shell-size-form",
+    "submitLabel":"GUARDAR",
+    "image":"shell-size-form.png",
+    "iconTitle":"Talla de conchas",
+    "title":"Información de recolección",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"TALLA DE CONCHAS",
+        "type":"title"
+      },
+      {
+        "label":"(Informe semanal)",
+        "type":"subtitle"
+      },
+      {
+        "id":"sectorName",
+        "label":"Sector",
+        "options":"OPTIONS_SECTORS_API",
+        "type":"select"
+      },
+      {
+        "id":"concheroName",
+        "isRequired":true,
+        "label":"Nombre del conchero",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"shellType",
+        "label":"Tipo de concha",
+        "options":[
+          "A. similis",
+          "A. tuberculosa"
+        ],
+        "type":"select"
+      },
+      {
+        "id":"samplingDate",
+        "isRequired":true,
+        "label":"Fecha de muestreo",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"shellCount",
+        "isRequired":true,
+        "label":"# total conchas capturadas",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"shellSizes",
+        "label":"Tallas conchas recolectadas",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 1000,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"sizeGroup",
+            "label":"Talla Concha",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"width",
+                "isRequired":true,
+                "label":"Ancho valvar(mm)",
+                "placeholder":"Ancho valvar en mm",
+                "type":"input",
+                "typeInput":"number",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"length",
+                "isRequired":true,
+                "label":"Largo valvar(mm)",
+                "placeholder":"Largo valvar en mm",
+                "type":"input",
+                "typeInput":"number",
+                "validate": "only-numbers"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "crab-size-form":{
+    "idReport":"crab-size-form",
+    "submitLabel":"GUARDAR",
+    "image":"crab-size-form.png",
+    "iconTitle":"Talla de cangrejos",
+    "title":"Información de recolección",
+    "showListBeforeForm": true,
+    "options":[
+      {
+        "label":"TALLA DE CANGREJOS",
+        "type":"title"
+      },
+      {
+        "label":"(Informe semanal)",
+        "type":"subtitle"
+      },
+      {
+        "id":"sectorName",
+        "label":"Sector",
+        "options":"OPTIONS_SECTORS_API",
+        "type":"select"
+      },
+      {
+        "id":"cangrejeroName",
+        "isRequired":true,
+        "label":"Nombre del cangrejero",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"textPersonName"
+      },
+      {
+        "id":"samplingDate",
+        "isRequired":true,
+        "label":"Fecha de muestreo",
+        "placeholder":"Seleccione la fecha",
+        "typeInput":"date",
+        "type":"calendar"
+      },
+      {
+        "id":"crabCount",
+        "isRequired":true,
+        "label":"# total cangrejos capturados",
+        "placeholder":"",
+        "type":"input",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"crabSizes",
+        "label":"Tallas cangrejos recolectados",
+        "minExtraOptions" : 1,
+        "maxExtraOptions" : 1000,
+        "type":"addOption",
+        "optionsToAdd":[
+          {
+            "id":"sizeGroup",
+            "label":"Talla cangrejo",
+            "type":"groupInputs",
+            "image":"info.png",
+            "optionsToGroup":[
+              {
+                "id":"width",
+                "isRequired":true,
+                "label":"Ancho carapacho(mm)",
+                "placeholder":"Ancho carapacho en mm",
+                "type":"input",
+                "typeInput":"number",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"length",
+                "isRequired":true,
+                "label":"Largo carapacho(mm)",
+                "placeholder":"Largo carapacho en mm",
+                "type":"input",
+                "typeInput":"number",
+                "validate": "only-numbers"
+              },
+              {
+                "id":"sex",
+                "label":"Sexo",
+                "options":[
+                  "Macho",
+                  "Hembra"
+                ],
+                "type":"select"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "social-indicators-form":{
+    "idReport":"social-indicators-form",
+    "submitLabel":"GUARDAR",
+    "image":"social-indicators-form.png",
+    "iconTitle":"Información socio",
+    "title":"Información socio",
+    "loadLast": true,
+    "showListBeforeForm": false,
+    "saveOnlyOne": true,
+    "options":[
+      {
+        "label":"INFORMACIÓN SOCIO",
+        "type":"title"
+      },
+      {
+        "id":"countFamilyMembers",
+        "isRequired":true,
+        "label":"# miembros en familia",
+        "placeholder":"",
+        "textHelp":"Ingrese la cantidad de miembros de su familia con los que vive",
+        "type":"inputWithHelp",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"countManglarDependents",
+        "isRequired":true,
+        "label":"# dependientes manglar",
+        "placeholder":"",
+        "textHelp":"Ingrese la cantidad de miembros de su familia que dependen de la actividad del manglar",
+        "type":"inputWithHelp",
+        "typeInput":"number",
+        "validate": "only-numbers"
+      },
+      {
+        "id":"incomePercentage",
+        "isRequired":true,
+        "label":"% ingresos act. en manglar $",
+        "placeholder":"",
+        "textHelp":"El porcentaje de ingresos mensuales que recibe por actividades relacionadas al manglar",
+        "type":"inputWithHelp",
+        "typeInput":"decimal",
+        "validate": "percentage"
+      },
+      {
+        "id":"nivel",
+        "label":"Nivel educación",
+        "options":[
+          "Educación Básica",
+          "Bachillerato",
+          "Tecnológico",
+          "Universidad",
+          "Postgrado"
+        ],
+        "type":"select"
+      }
+    ]
+  }
+}
