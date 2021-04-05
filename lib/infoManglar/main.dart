@@ -11,7 +11,7 @@ import '../util/utility.dart';
 import '../plugins/internet_connection.dart';
 import 'infoForm/controller/info_form_save_controller.dart';
 
-class InfoManglarApp extends StatefulWidget{
+class InfoManglarApp extends StatefulWidget {
   @override
   _State createState() {
     return _State();
@@ -19,7 +19,6 @@ class InfoManglarApp extends StatefulWidget{
 }
 
 class _State extends State<InfoManglarApp> {
-
   bool _loaded = false;
   StreamSubscription subscription;
   final _infoFormSaveController = InfoFormSaveController();
@@ -31,10 +30,13 @@ class _State extends State<InfoManglarApp> {
     if (Constants.isWeb) {
       User.setHastInternetConnection(context, true);
     } else {
-      subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
-        bool isConnected = result == ConnectivityResult.mobile || result == ConnectivityResult.wifi;
-        if ( isConnected ) _saveLocalStorageForms();
-        if ( !isConnected ) User.setHastInternetConnection(context, false);
+      subscription = Connectivity()
+          .onConnectivityChanged
+          .listen((ConnectivityResult result) {
+        bool isConnected = result == ConnectivityResult.mobile ||
+            result == ConnectivityResult.wifi;
+        if (isConnected) _saveLocalStorageForms();
+        if (!isConnected) User.setHastInternetConnection(context, false);
       });
     }
     User.setInfoFromLocalStorage().then((_) {
@@ -46,19 +48,16 @@ class _State extends State<InfoManglarApp> {
 
   @override
   Widget build(BuildContext context) {
-    return _loaded
-        ? _materialApp()
-        : Utility.getCircularProgress();
+    return _loaded ? _materialApp() : Utility.getCircularProgress();
   }
 
   _saveLocalStorageForms() async {
     bool hasInternet = await InternetConection.checkInternet();
     User.setHastInternetConnection(context, hasInternet);
-    if ( hasInternet && User.hasOfflineMode()) {
+    if (hasInternet && User.hasOfflineMode()) {
       await _infoFormSaveController.saveFromLocalStorage(context);
     }
   }
-
 
   _materialApp() {
     return MaterialApp(
@@ -86,5 +85,4 @@ class _State extends State<InfoManglarApp> {
       home: Home(),
     );
   }
-
 }

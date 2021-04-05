@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'dart:convert';
 
@@ -44,13 +43,16 @@ import '../../../constants.dart';
 import '../../../shared/anomalyForm/controller/offline_controller.dart';
 
 class InfoFormSaveController {
-
   final infoFormRepository = InfoFormRepository();
   final _offlineController = OfflineController();
 
   BuildContext _context;
 
-  final List<String> _offlineForms = ['shell-collection-form', 'crab-collection-form', 'evidence-form'];
+  final List<String> _offlineForms = [
+    'shell-collection-form',
+    'crab-collection-form',
+    'evidence-form'
+  ];
 
   Future<bool> save(FormConfig formConfig, context) async {
     _context = context;
@@ -58,9 +60,9 @@ class InfoFormSaveController {
     int orgId = int.tryParse(User.organizationManglarId);
     String formType = formConfig.idReport;
 
-    FormToSave formToSave = _getData(formType, formConfig, userId, orgId, false);
-
-    if ( User.hasInternetConnection ) {
+    FormToSave formToSave =
+        _getData(formType, formConfig, userId, orgId, false);
+    if (User.hasInternetConnection) {
       return await _saveOnline(context, formToSave);
     } else {
       return await _saveOffline(context, formType, formToSave.data);
@@ -70,7 +72,8 @@ class InfoFormSaveController {
   Future<bool> saveFromLocalStorage(context) async {
     bool success = true;
     for (String formType in _offlineForms) {
-      bool successSave = await _saveFromLocalStorageByFormType(context, formType);
+      bool successSave =
+          await _saveFromLocalStorageByFormType(context, formType);
       if (!successSave) success = false;
     }
     return success;
@@ -78,7 +81,8 @@ class InfoFormSaveController {
 
   Future<bool> _saveOffline(context, String formType, String data) async {
     if (_offlineForms.indexOf(formType) < 0 || !User.hasOfflineMode()) {
-      Utility.showToast(context, 'Este formulario solo se guarda con conexión a internet');
+      Utility.showToast(
+          context, 'Este formulario solo se guarda con conexión a internet');
       return false;
     }
     String msg = 'Se guardará cuando tenga internet';
@@ -98,30 +102,31 @@ class InfoFormSaveController {
 
   Future<bool> _saveFromLocalStorageByFormType(context, String formType) async {
     List<String> formsIds = await _offlineController.getFormsOnLocal(formType);
-    if ( formsIds.length == 0 ) return true;
+    if (formsIds.length == 0) return true;
 
     bool success = true;
     int userId = int.tryParse(User.userId);
     int orgId = int.tryParse(User.organizationManglarId);
-    for ( String formId in formsIds ) {
+    for (String formId in formsIds) {
       String formData = await Utility.getLocalStorage(formId);
-      if (formData == 'null' ) {
+      if (formData == 'null') {
         await _offlineController.removeFormsOnLocal(formType, formId);
         return success;
       }
       FormToSave formToSave = _getData(formType, formData, userId, orgId, true);
       bool successSaveForm = await _saveOnline(context, formToSave);
-      if ( !successSaveForm ) success = false;
+      if (!successSaveForm) success = false;
       await _offlineController.removeFormsOnLocal(formType, formId);
     }
     return success;
   }
 
   Future<bool> _saveOnline(context, FormToSave formToSave) async {
-    Utility.showLoading(context, msg: 'Guardando formulario por favor no cerrar la app');
+    Utility.showLoading(context,
+        msg: 'Guardando formulario por favor no cerrar la app');
     String msg = 'Formulario guardado correctamente';
     bool successSaveFiles = await saveFiles(formToSave.fileForms);
-    if ( !successSaveFiles ) {
+    if (!successSaveFiles) {
       msg = 'Error al guardar los archivos del formulario';
     }
     Data result = await _saveData(context, formToSave);
@@ -188,148 +193,218 @@ class InfoFormSaveController {
     }
   }
 
-  FormToSave _getData(String formType, dynamic formConfig, int userId, int orgId, bool fromString) {
+  FormToSave _getData(String formType, dynamic formConfig, int userId,
+      int orgId, bool fromString) {
     switch (formType) {
       case 'official-docs-form':
-        OfficialDocsForm form = fromString ?
-          OfficialDocsForm.fromJson(json.decode(formConfig)) :
-          OfficialDocsForm.fromFormConfig(formConfig, userId, orgId);
+        OfficialDocsForm form = fromString
+            ? OfficialDocsForm.fromJson(json.decode(formConfig))
+            : OfficialDocsForm.fromFormConfig(formConfig, userId, orgId);
         List<FileForm> fileForms = [];
-        for (Agreement agreement in form.agreements){
+        for (Agreement agreement in form.agreements) {
           fileForms.addAll(agreement.fileForms);
         }
         fileForms.addAll(form.fileForms);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: fileForms, formType: formType);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: fileForms,
+            formType: formType);
       case 'prices-form':
-        PricesForm form = fromString ?
-          PricesForm.fromJson(json.decode(formConfig)) :
-          PricesForm.fromFormConfig(formConfig, userId, orgId);
+        PricesForm form = fromString
+            ? PricesForm.fromJson(json.decode(formConfig))
+            : PricesForm.fromFormConfig(formConfig, userId, orgId);
         List<FileForm> fileForms = [];
-        for (PriceDaily priceDaily in form.priceDailies){
+        for (PriceDaily priceDaily in form.priceDailies) {
           fileForms.addAll(priceDaily.fileForms);
         }
-        return FormToSave(data: json.encode(form.toJson()), fileForms: fileForms, formType: formType);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: fileForms,
+            formType: formType);
       case 'desc-projects-form':
-        DescProjectsForm form = fromString ?
-          DescProjectsForm.fromJson(json.decode(formConfig)) :
-          DescProjectsForm.fromFormConfig(formConfig, userId, orgId);
+        DescProjectsForm form = fromString
+            ? DescProjectsForm.fromJson(json.decode(formConfig))
+            : DescProjectsForm.fromFormConfig(formConfig, userId, orgId);
         List<FileForm> fileForms = [];
-        for (DocumentProject documentProject in form.documentProjects){
+        for (DocumentProject documentProject in form.documentProjects) {
           fileForms.addAll(documentProject.fileForms);
         }
-        return FormToSave(data: json.encode(form.toJson()), fileForms: fileForms, formType: formType);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: fileForms,
+            formType: formType);
       case 'investments-orgs-form':
-        InvestmentsOrgsForm form = fromString ?
-          InvestmentsOrgsForm.fromJson(json.decode(formConfig)) :
-          InvestmentsOrgsForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        InvestmentsOrgsForm form = fromString
+            ? InvestmentsOrgsForm.fromJson(json.decode(formConfig))
+            : InvestmentsOrgsForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'economic-indicators-form':
-        EconomicIndicatorsForm form = fromString ?
-          EconomicIndicatorsForm.fromJson(json.decode(formConfig)) :
-          EconomicIndicatorsForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        EconomicIndicatorsForm form = fromString
+            ? EconomicIndicatorsForm.fromJson(json.decode(formConfig))
+            : EconomicIndicatorsForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'plan-tracking-form':
-        PlanTrackingForm form = fromString ?
-          PlanTrackingForm.fromJson(json.decode(formConfig)) :
-          PlanTrackingForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        PlanTrackingForm form = fromString
+            ? PlanTrackingForm.fromJson(json.decode(formConfig))
+            : PlanTrackingForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'info-veda-form':
-        InfoVedaForm form = fromString ?
-          InfoVedaForm.fromJson(json.decode(formConfig)) :
-          InfoVedaForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        InfoVedaForm form = fromString
+            ? InfoVedaForm.fromJson(json.decode(formConfig))
+            : InfoVedaForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'shell-size-form':
-        ShellSizeForm form = fromString ?
-          ShellSizeForm.fromJson(json.decode(formConfig)) :
-          ShellSizeForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        ShellSizeForm form = fromString
+            ? ShellSizeForm.fromJson(json.decode(formConfig))
+            : ShellSizeForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'crab-size-form':
-        CrabSizeForm form = fromString ?
-          CrabSizeForm.fromJson(json.decode(formConfig)) :
-          CrabSizeForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        CrabSizeForm form = fromString
+            ? CrabSizeForm.fromJson(json.decode(formConfig))
+            : CrabSizeForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'deforestation-form':
-        DeforestationForm form = fromString ?
-          DeforestationForm.fromJson(json.decode(formConfig)) :
-          DeforestationForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        DeforestationForm form = fromString
+            ? DeforestationForm.fromJson(json.decode(formConfig))
+            : DeforestationForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'reforestation-form':
-        ReforestationForm form = fromString ?
-          ReforestationForm.fromJson(json.decode(formConfig)) :
-          ReforestationForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        ReforestationForm form = fromString
+            ? ReforestationForm.fromJson(json.decode(formConfig))
+            : ReforestationForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'control-form':
-        ControlForm form = fromString ?
-          ControlForm.fromJson(json.decode(formConfig)) :
-          ControlForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: form.fileForms, formType: formType);
+        ControlForm form = fromString
+            ? ControlForm.fromJson(json.decode(formConfig))
+            : ControlForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: form.fileForms,
+            formType: formType);
       case 'organization-info-form':
-        OrganizationInfoForm form = fromString ?
-         OrganizationInfoForm.fromJson(json.decode(formConfig)) :
-         OrganizationInfoForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: form.fileForms, formType: formType);
+        OrganizationInfoForm form = fromString
+            ? OrganizationInfoForm.fromJson(json.decode(formConfig))
+            : OrganizationInfoForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: form.fileForms,
+            formType: formType);
       case 'shell-collection-form':
-        ShellCollectionForm form = fromString ?
-          ShellCollectionForm.fromJson(json.decode(formConfig)) :
-          ShellCollectionForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        ShellCollectionForm form = fromString
+            ? ShellCollectionForm.fromJson(json.decode(formConfig))
+            : ShellCollectionForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'crab-collection-form':
-        CrabCollectionForm form = fromString ?
-          CrabCollectionForm.fromJson(json.decode(formConfig)) :
-          CrabCollectionForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        CrabCollectionForm form = fromString
+            ? CrabCollectionForm.fromJson(json.decode(formConfig))
+            : CrabCollectionForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'evidence-form':
-        EvidenceForm form = fromString ?
-          EvidenceForm.fromJson(json.decode(formConfig)) :
-          EvidenceForm.fromFormConfig(formConfig, userId, orgId);
+        EvidenceForm form = fromString
+            ? EvidenceForm.fromJson(json.decode(formConfig))
+            : EvidenceForm.fromFormConfig(formConfig, userId, orgId);
         List<FileForm> fileForms = [];
-        for (EvidenceActivity subForm in form.evidenceActivities){
+        for (EvidenceActivity subForm in form.evidenceActivities) {
           fileForms.addAll(subForm.fileForms);
         }
-        return FormToSave(data: json.encode(form.toJson()), fileForms: fileForms, formType: formType);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: fileForms,
+            formType: formType);
       case 'management-plan-form':
-        ManagementPlanForm form = fromString ?
-          ManagementPlanForm.fromJson(json.decode(formConfig)) :
-          ManagementPlanForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        ManagementPlanForm form = fromString
+            ? ManagementPlanForm.fromJson(json.decode(formConfig))
+            : ManagementPlanForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'mapping-form':
-        MappingForm form = fromString ?
-          MappingForm.fromJson(json.decode(formConfig)) :
-          MappingForm.fromFormConfig(formConfig, userId, orgId);
+        MappingForm form = fromString
+            ? MappingForm.fromJson(json.decode(formConfig))
+            : MappingForm.fromFormConfig(formConfig, userId, orgId);
         List<FileForm> fileForms = [];
-        for (OrgMapping f in form.orgsMapping){
+        for (OrgMapping f in form.orgsMapping) {
           fileForms.addAll(f.fileForms);
         }
-        return FormToSave(data: json.encode(form.toJson()), fileForms: fileForms, formType: formType);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: fileForms,
+            formType: formType);
       case 'limits-form':
-        LimitsForm form = fromString ?
-          LimitsForm.fromJson(json.decode(formConfig)) :
-          LimitsForm.fromFormConfig(formConfig, userId, orgId);
+        LimitsForm form = fromString
+            ? LimitsForm.fromJson(json.decode(formConfig))
+            : LimitsForm.fromFormConfig(formConfig, userId, orgId);
         List<FileForm> fileForms = [];
-        for (OrgMapping f in form.orgsMapping){
+        for (OrgMapping f in form.orgsMapping) {
           fileForms.addAll(f.fileForms);
         }
-        return FormToSave(data: json.encode(form.toJson()), fileForms: fileForms, formType: formType);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: fileForms,
+            formType: formType);
       case 'semi-annual-report-form':
-        SemiAnnualReportForm form = fromString ?
-          SemiAnnualReportForm.fromJson(json.decode(formConfig)) :
-          SemiAnnualReportForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: form.fileForms, formType: formType);
+        SemiAnnualReportForm form = fromString
+            ? SemiAnnualReportForm.fromJson(json.decode(formConfig))
+            : SemiAnnualReportForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: form.fileForms,
+            formType: formType);
       case 'technical-report-form':
-        TechnicalReportForm form = fromString ?
-          TechnicalReportForm.fromJson(json.decode(formConfig)) :
-          TechnicalReportForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: form.fileForms, formType: formType);
+        TechnicalReportForm form = fromString
+            ? TechnicalReportForm.fromJson(json.decode(formConfig))
+            : TechnicalReportForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: form.fileForms,
+            formType: formType);
       case 'fishing-effort-form':
-        FishingEffortForm form = fromString ?
-          FishingEffortForm.fromJson(json.decode(formConfig)) :
-          FishingEffortForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        FishingEffortForm form = fromString
+            ? FishingEffortForm.fromJson(json.decode(formConfig))
+            : FishingEffortForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       case 'social-indicators-form':
-        SocialIndicatorsForm form = fromString ?
-          SocialIndicatorsForm.fromJson(json.decode(formConfig)) :
-          SocialIndicatorsForm.fromFormConfig(formConfig, userId, orgId);
-        return FormToSave(data: json.encode(form.toJson()), fileForms: [], formType: formType);
+        SocialIndicatorsForm form = fromString
+            ? SocialIndicatorsForm.fromJson(json.decode(formConfig))
+            : SocialIndicatorsForm.fromFormConfig(formConfig, userId, orgId);
+        return FormToSave(
+            data: json.encode(form.toJson()),
+            fileForms: [],
+            formType: formType);
       default:
         throw 'Add save config for ${formConfig.idReport}';
     }
@@ -338,11 +413,13 @@ class InfoFormSaveController {
   Future<bool> saveFiles(List<FileForm> fileForms) async {
     if (Constants.isWeb) {
       List<FileForm> filesNotEmpty = fileForms
-          .where( (FileForm file) => !file.isEmpty() && file.base64 != null ).toList();
+          .where((FileForm file) => !file.isEmpty() && file.base64 != null)
+          .toList();
       return await _saveWeb(filesNotEmpty);
     }
     List<FileForm> filesNotEmpty = fileForms
-        .where( (FileForm file) => !file.isEmpty() && file.pathOrigin != null ).toList();
+        .where((FileForm file) => !file.isEmpty() && file.pathOrigin != null)
+        .toList();
     return await _saveMovil(filesNotEmpty);
   }
 
@@ -354,7 +431,8 @@ class InfoFormSaveController {
       String imagePath = file.pathOrigin;
       try {
         File imageFile = File(imagePath);
-        String stateUpload = await Upload.uploadFile(imageFile, uploadURL, nameFile);
+        String stateUpload =
+            await Upload.uploadFile(imageFile, uploadURL, nameFile);
         if (stateUpload != 'OK') {
           success = false;
           Utility.showToast(_context, 'ERROR foto $nameFile s:$stateUpload');
@@ -375,7 +453,8 @@ class InfoFormSaveController {
       String nameFile = file.name;
       String source = file.base64.split('base64,').asMap()[1];
       try {
-        String stateUpload = await Upload.uploadFileFromBase64Str(source, uploadURL, nameFile);
+        String stateUpload =
+            await Upload.uploadFileFromBase64Str(source, uploadURL, nameFile);
         if (stateUpload != 'OK') {
           success = false;
           Utility.showToast(_context, 'ERROR foto $nameFile s:$stateUpload');
@@ -389,8 +468,7 @@ class InfoFormSaveController {
   }
 }
 
-class FormToSave{
-
+class FormToSave {
   final String data;
   final String formType;
   final List<FileForm> fileForms;
