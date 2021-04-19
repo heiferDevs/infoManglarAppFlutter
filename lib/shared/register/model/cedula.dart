@@ -1,6 +1,4 @@
-
-class Cedula{
-
+class Cedula {
   String cedula;
   String nombre;
   String estadoCivil;
@@ -25,29 +23,26 @@ class Cedula{
   // FROM API
   factory Cedula.fromJson(Map<String, dynamic> json) {
     return Cedula(
-      cedula: json['cedula'],
-      nombre: json['nombre'],
+      cedula: json['Cedula'],
+      nombre: json['Nombre'],
       genero: json['genero'],
       domicilio: json['domicilio'],
       estadoCivil: json['estadoCivil'],
       nacionalidad: json['nacionalidad'],
       calleDomicilio: json['calleDomicilio'],
-      error: json['error'],
+      error: json['Error'],
     );
   }
 
   // TO SAVE
-  Map<String, dynamic> toJson() =>
-  {
-    'cedula': cedula,
-    'error': error,
-    'nombre': nombre,
-    'estadoCivil': estadoCivil,
-    'nacionalidad': nacionalidad,
-    'calleDomicilio': calleDomicilio,
-    'genero': genero,
-    'domicilio': domicilio,
-  };
-
+  Map<String, dynamic> toJson() => {
+        'cedula': cedula,
+        'error': error,
+        'nombre': nombre,
+        'estadoCivil': estadoCivil,
+        'nacionalidad': nacionalidad,
+        'calleDomicilio': calleDomicilio,
+        'genero': genero,
+        'domicilio': domicilio,
+      };
 }
-
