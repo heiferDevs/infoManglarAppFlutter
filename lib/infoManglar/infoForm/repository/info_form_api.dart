@@ -484,7 +484,7 @@ class InfoFormApi {
 
   // REMOVE
   Future<Data> removePdfReportForm(int formId) async {
-    dynamic result = await _webClient.get('rest/pdf-report-form-rm/$formId');
+    dynamic result = await _webClient.get('rest/pdf-report-form/rm/$formId');
     return Data.fromJson(result);
   }
 }
