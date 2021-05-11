@@ -1,7 +1,7 @@
 class Constants {
   static String version = "1.0.9";
 
-  // static String hostUrl = "http://192.168.1.8.:8080/info-manglar/"; // LOCAL
+  // static String hostUrl = "http://34.196.200.76:8080/info-manglar/"; // AWS Heifer
   // static String hostUrl = "http://localhost:8080/info-manglar/"; // WEB LOCAL
   static String hostUrl = "http://3.18.140.95:8080/info-manglar/"; // AWS Agrapp
   static bool isWeb = false;
