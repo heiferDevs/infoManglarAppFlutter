@@ -1,6 +1,6 @@
 import '../constants.dart';
 import 'package:file_picker/file_picker.dart';
-// import 'dart:html';
+import 'dart:html';
 
 import 'fileExport.dart';
 
@@ -35,24 +35,25 @@ class FilePickerApp {
   }
 
   static Future<FileExport> getFileWeb(List<String> exts) async {
-    // InputElement uploadInput = FileUploadInputElement();
-    // uploadInput.click();
-    // await for (Event event in uploadInput.onChange) {
-    //   final files = uploadInput.files;
-    //   if (files.length == 1) {
-    //     final file = files[0];
-    //     String nameFile = file.name;
-    //     if (!hasExtensions(nameFile, exts)) {
-    //       return null;
-    //     }
-    //     final reader = new FileReader();
-    //     reader.readAsDataUrl(file);
-    //     await for (ProgressEvent progressEvent in reader.onLoadEnd) {
-    //       String base64 = reader.result;
-    //       return FileExport(name: nameFile, type: getType(nameFile), base64: base64);
-    //     }
-    //   }
-    // }
+    InputElement uploadInput = FileUploadInputElement();
+    uploadInput.click();
+    await for (Event event in uploadInput.onChange) {
+      final files = uploadInput.files;
+      if (files.length == 1) {
+        final file = files[0];
+        String nameFile = file.name;
+        if (!hasExtensions(nameFile, exts)) {
+          return null;
+        }
+        final reader = new FileReader();
+        reader.readAsDataUrl(file);
+        await for (ProgressEvent progressEvent in reader.onLoadEnd) {
+          String base64 = reader.result;
+          return FileExport(
+              name: nameFile, type: getType(nameFile), base64: base64);
+        }
+      }
+    }
     return null;
   }
 
