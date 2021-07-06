@@ -1,44 +1,47 @@
-
 import '../../../util/user.dart';
 
 class FilterUtility {
-
-  enableFilterOrgs(){
+  enableFilterOrgs() {
     return User.role == 'mae' || User.role == 'inp';
   }
 
-  enableDownloadsReports(){
+  enableDownloadsReports() {
     return User.role == 'mae' || User.role == 'inp';
   }
 
-  getFormsSocio(){
+  getFormsSocio() {
     if (User.role == 'inp') return _formsSocioINP;
     return _formsSocio;
   }
 
-  getFormsOrg(){
+  getFormsOrg() {
     if (User.role == 'inp') return _formsOrgINP;
     return _formsOrg;
   }
 
-  getFormsMae(){
+  getFormsMae() {
     return _formsMae;
   }
 
-  getFormsInp(){
+  getFormsInp() {
     return _formsInp;
   }
 
-  getFormsAll(){
+  getFormsAll() {
     List<Map<String, dynamic>> _formsOrg = _addPrefix(getFormsOrg(), 'ORG');
-    List<Map<String, dynamic>> _formsSocio = _addPrefix(getFormsSocio(), 'SOCIO');
+    List<Map<String, dynamic>> _formsSocio =
+        _addPrefix(getFormsSocio(), 'SOCIO');
     List<Map<String, dynamic>> _formsMae = _addPrefix(getFormsMae(), 'MAE');
-    List<Map<String, dynamic>> _formsInp = _addPrefix(getFormsInp(), 'INP');
+    List<Map<String, dynamic>> _formsInp = _addPrefix(getFormsInp(), 'IPIAP');
     List<Map<String, dynamic>> result = [];
-    return result..addAll(_formsMae)..addAll(_formsInp)..addAll(_formsSocio)..addAll(_formsOrg);
+    return result
+      ..addAll(_formsMae)
+      ..addAll(_formsInp)
+      ..addAll(_formsSocio)
+      ..addAll(_formsOrg);
   }
 
-  _addPrefix(List<Map<String, dynamic>> forms, String prefix){
+  _addPrefix(List<Map<String, dynamic>> forms, String prefix) {
     return forms.map<Map<String, dynamic>>((formInfo) {
       return {
         'label': '($prefix) ${formInfo['label']}',
@@ -71,26 +74,26 @@ class FilterUtility {
   ];
 
   List<Map<String, dynamic>> userType = [
-      {
-        'label': 'Todos',
-        'id': 'all',
-      },
-      {
-        'label': 'Socio',
-        'id': 'socio',
-      },
-      {
-        'label': 'Organización',
-        'id': 'org',
-      },
-      {
-        'label': 'MAE',
-        'id': 'mae',
-      },
-      {
-        'label': 'INP',
-        'id': 'inp',
-      },
+    {
+      'label': 'Todos',
+      'id': 'all',
+    },
+    {
+      'label': 'Socio',
+      'id': 'socio',
+    },
+    {
+      'label': 'Organización',
+      'id': 'org',
+    },
+    {
+      'label': 'MAE',
+      'id': 'mae',
+    },
+    {
+      'label': 'IPIAP',
+      'id': 'inp',
+    },
   ];
 
   final List<Map<String, dynamic>> optionsStats = [
@@ -229,5 +232,4 @@ class FilterUtility {
       'id': 'reforestation-form',
     },
   ];
-
 }

@@ -16,7 +16,7 @@
       {
         "id":"reportInp",
         "isRequired":true,
-        "label":"Informe INP",
+        "label":"Informe IPIAP",
         "placeholder":"",
         "type":"file"
       }
