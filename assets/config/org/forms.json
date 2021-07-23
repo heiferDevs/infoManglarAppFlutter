@@ -1864,7 +1864,6 @@
         "id":"programs",
         "label":"Programas del plan de manejo",
         "minExtraOptions":1,
-        "maxExtraOptions":5,
         "type":"addOption",
         "optionsToAdd":[
           {
@@ -1878,14 +1877,13 @@
                 "isRequired": true,
                 "label":"Programa",
                 "placeholder":"",
-                "type":"input",
+                "type":"inputTextArea",
                 "typeInput":"textPersonName"
               },
               {
                 "id":"objectives",
                 "label":"Objetivos del programa",
                 "minExtraOptions":1,
-                "maxExtraOptions":5,
                 "type":"addOption",
                 "optionsToAdd":[
                   {
@@ -1899,14 +1897,13 @@
                         "isRequired": true,
                         "label":"Objetivo",
                         "placeholder":"",
-                        "type":"input",
+                        "type":"inputTextArea",
                         "typeInput":"textPersonName"
                       },
                       {
                         "id":"activities",
                         "label":"Actividades del programa",
                         "minExtraOptions":1,
-                        "maxExtraOptions":5,
                         "type":"addOption",
                         "optionsToAdd":[
                           {
@@ -1920,14 +1917,13 @@
                                 "isRequired": true,
                                 "label":"Actividad",
                                 "placeholder":"",
-                                "type":"input",
+                                "type":"inputTextArea",
                                 "typeInput":"textPersonName"
                               },
                               {
                                 "id":"indicators",
                                 "label":"Indicadores de la actividad",
                                 "minExtraOptions":1,
-                                "maxExtraOptions":5,
                                 "type":"addOption",
                                 "optionsToAdd":[
                                   {
@@ -1935,7 +1931,7 @@
                                     "isRequired": false,
                                     "label":"Indicador",
                                     "placeholder":"",
-                                    "type":"input",
+                                    "type":"inputTextArea",
                                     "typeInput":"textPersonName"
                                   }
                                 ]
